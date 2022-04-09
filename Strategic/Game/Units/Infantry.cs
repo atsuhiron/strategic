@@ -9,7 +9,7 @@ namespace Game.Units
 {
     public class Infantry : BaseUnit
     {
-        public override string Name => "Infantry";
+        public override UnitTypes UnitType => UnitTypes.Infantry;
 
         public override uint XCoord { get; set; }
         public override uint YCoord { get; set; }
