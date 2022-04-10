@@ -11,8 +11,8 @@ namespace Game.Units.Base
     {
         public UnitTypes UnitType { get; }
         public string UniqueName { get; }
+        public string Color { get; }
         public uint XCoord { get; set; }
         public uint YCoord { get; set; }
-        public string Color { get; }
     }
 }

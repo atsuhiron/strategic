@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Units.Base;
 
 namespace Game.Fields.Base
 {
@@ -10,9 +11,10 @@ namespace Game.Fields.Base
     {
         public string Name { get; }
         public string UniqueName { get; }
+        public string Color { get; }
         public uint XCoord { get; init; }
         public uint YCoord { get; init; }
-
-        public string Color { get; }
+        public IUnit? Unit { get; set; }
+        
     }
 }
