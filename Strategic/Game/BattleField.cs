@@ -16,7 +16,7 @@ namespace Game
 
         public BattleField()
         {
-            Field = new Field();
+            Field = new Field(debug: true);
             Players = Array.Empty<IPlayer>();
         }
     }

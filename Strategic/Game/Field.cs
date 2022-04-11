@@ -14,18 +14,28 @@ namespace Game
         public uint Height { get; init; }
         public IReadOnlyList<IReadOnlyList<IFieldCell>> FieldCells { get; init; }
 
-        public Field()
+        public Field(bool debug)
         {
-            Width = 10;
-            Height = 8;
+            if (debug)
+            {
+                Width = 10;
+                Height = 8;
 
-            FieldCells = Enumerable
-                .Range(0, (int)Height)
-                .Select(hi => Enumerable
-                    .Range(0, (int)Width)
-                    .Select(wi => new Plane((uint)wi, (uint)hi) as IFieldCell)
-                    .ToList())
-                .ToList();
+                FieldCells = Enumerable
+                    .Range(0, (int)Height)
+                    .Select(hi => Enumerable
+                        .Range(0, (int)Width)
+                        .Select(wi => new Plane((uint)wi, (uint)hi) as IFieldCell)
+                        .ToList())
+                    .ToList();
+            } 
+            else
+            {
+                Width = 0;
+                Height = 0;
+                FieldCells = Array.Empty<IReadOnlyList<IFieldCell>>();
+            }
+            
         }
     }
 }
