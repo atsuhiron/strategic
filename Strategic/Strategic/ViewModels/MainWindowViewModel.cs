@@ -5,24 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Windows.Input;
 using Game;
+using App.Commands;
+
 
 namespace App.ViewModels
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+        public ICommand DrawCommand { get; init; }
 
         private BattleField BattleField { get; set; }
 
         public MainWindowViewModel()
         {
-            BattleField = new BattleField();   
+            BattleField = new BattleField();
+
+            
+            DrawCommand = new DrawBattleFieldCommand();
         }
 
         private static void ReDrawBattleField(BattleField battleField)
         {
-
+            
         }
     }
 }

@@ -9,7 +9,7 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <ScrollViewer Margin="160,160,0,0" HorizontalScrollBarVisibility="Visible">
-            <Grid Height="525" Width="923" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid Height="525" Width="923" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="BattleFieldGrid">
                 <Grid.DataContext>
                     <localvm:MainWindowViewModel/>
                 </Grid.DataContext>
@@ -19,6 +19,7 @@
                         <GradientStop Color="#FFEC1919" Offset="1"/>
                     </RadialGradientBrush>
                 </Grid.Background>
+                <Button x:Name="testButton" Content="Button" HorizontalAlignment="Left" Height="29" Margin="334,26,0,0" VerticalAlignment="Top" Width="60" Command="{Binding DrawCommand}" CommandParameter="{Binding ElementName=BattleFieldGrid}"/>
             </Grid>
         </ScrollViewer>
 
