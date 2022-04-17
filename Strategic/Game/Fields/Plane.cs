@@ -12,21 +12,21 @@ namespace Game.Fields
     {
         public override string Name => "Plane";
 
-        public override uint XCoord { get; init; }
-        public override uint YCoord { get; init; }
+        public override int XCoord { get; init; }
+        public override int YCoord { get; init; }
 
         public override string Color => "Green";
 
         public override IUnit? Unit { get; set; }
 
-        public Plane(uint xcoord, uint ycoord)
+        public Plane(int xcoord, int ycoord)
         {
             XCoord = xcoord;
             YCoord = ycoord;
             Unit = null;
         }
 
-        public Plane(uint xcoord, uint ycoord, IUnit unit)
+        public Plane(int xcoord, int ycoord, IUnit unit)
         {
             XCoord = xcoord;
             YCoord = ycoord;

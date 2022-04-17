@@ -12,8 +12,8 @@ namespace Game.Fields.Base
         public string Name { get; }
         public string UniqueName { get; }
         public string Color { get; }
-        public uint XCoord { get; init; }
-        public uint YCoord { get; init; }
+        public int XCoord { get; init; }
+        public int YCoord { get; init; }
         public IUnit? Unit { get; set; }
         
     }

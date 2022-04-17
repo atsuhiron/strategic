@@ -22,9 +22,18 @@ namespace App.ViewModels
         public MainWindowViewModel()
         {
             BattleField = new BattleField();
-
             
-            DrawCommand = new DrawBattleFieldCommand();
+            DrawCommand = new DrawBattleFieldCommand(this);
+        }
+
+        public int GetHeight()
+        {
+            return BattleField.Field.Height;
+        }
+
+        public int GetWidth()
+        {
+            return BattleField.Field.Width;
         }
 
         private static void ReDrawBattleField(BattleField battleField)

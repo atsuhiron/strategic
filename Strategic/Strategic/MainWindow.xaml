@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:App"
-        xmlns:localvm="clr-namespace:App.ViewModels"
+        xmlns:localVM="clr-namespace:App.ViewModels"
+        xmlns:localConst="clr-namespace:App.Constants"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <ScrollViewer Margin="160,160,0,0" HorizontalScrollBarVisibility="Visible">
-            <Grid Height="525" Width="923" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="BattleFieldGrid">
+            <Grid Height="525" Width="923" x:Name="BattleFieldGrid">
                 <Grid.DataContext>
-                    <localvm:MainWindowViewModel/>
+                    <localVM:MainWindowViewModel/>
                 </Grid.DataContext>
                 <Grid.Background>
                     <RadialGradientBrush>
@@ -23,11 +24,18 @@
             </Grid>
         </ScrollViewer>
 
-        <Menu x:Name="menu" Height="20" VerticalAlignment="Top"/>
+        <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
+            <MenuItem Header="{x:Static localConst:Strings.file}">
+                <MenuItem Header="{x:Static localConst:Strings.load}"/>
+                <MenuItem Header="{x:Static localConst:Strings.save}"/>
+                <Separator/>
+                <MenuItem Header="{x:Static localConst:Strings.debugLoad}"/>
+            </MenuItem>
+        </Menu>
 
         <Grid Margin="0,20,0,0" Height="135" VerticalAlignment="Top">
             <Grid.DataContext>
-                <localvm:RibbonViewModel/>
+                <localVM:RibbonViewModel/>
             </Grid.DataContext>
             <Grid.Background>
                 <RadialGradientBrush>
@@ -39,7 +47,7 @@
 
         <Grid Margin="0,160,0,0" HorizontalAlignment="Left" Width="160">
             <Grid.DataContext>
-                <localvm:SideBarViewModel/>
+                <localVM:SideBarViewModel/>
             </Grid.DataContext>
             <Grid.Background>
                 <RadialGradientBrush>

@@ -8,6 +8,8 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Shapes;
+using App.ViewModels;
+using App.Constants;
 
 namespace App.Commands
 {
@@ -19,7 +21,12 @@ namespace App.Commands
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public DrawBattleFieldCommand() { }
+        private readonly MainWindowViewModel mainWindowViewModel;
+
+        public DrawBattleFieldCommand(MainWindowViewModel mainWindowVM)
+        {
+            mainWindowViewModel = mainWindowVM;
+        }
 
         public bool CanExecute(object? parameter)
         {
@@ -30,14 +37,24 @@ namespace App.Commands
         {
             if (parameter is Grid bfGrid)
             {
-                var rect = new Rectangle
+                foreach (var y in Enumerable.Range(0, mainWindowViewModel.GetHeight()))
                 {
-                    Width = 40,
-                    Height = 80,
-                    Margin = new Thickness(10, 20, 0, 0),
-                    Stroke = new SolidColorBrush(Colors.Blue)
-                };
-                bfGrid.Children.Add(rect);
+                    foreach (var x in Enumerable.Range(0, mainWindowViewModel.GetWidth()))
+                    {
+                        var rect = new Rectangle
+                        {
+                            Width = Values.cellSize,
+                            Height = Values.cellSize,
+                            Stroke = new SolidColorBrush(Colors.Blue),
+                            HorizontalAlignment = HorizontalAlignment.Left,
+                            VerticalAlignment = VerticalAlignment.Top,
+                            Margin = new Thickness(Values.cellSize * x, Values.cellSize * y, 0, 0)
+                        };
+                        bfGrid.Children.Add(rect);
+                    }
+                }
+
+                
             }
         }
     }

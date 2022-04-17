@@ -10,8 +10,8 @@ namespace Game
 {
     public class Field
     {
-        public uint Width { get; init; }
-        public uint Height { get; init; }
+        public int Width { get; init; }
+        public int Height { get; init; }
         public IReadOnlyList<IReadOnlyList<IFieldCell>> FieldCells { get; init; }
 
         public Field(bool debug)
@@ -22,10 +22,10 @@ namespace Game
                 Height = 8;
 
                 FieldCells = Enumerable
-                    .Range(0, (int)Height)
+                    .Range(0, Height)
                     .Select(hi => Enumerable
-                        .Range(0, (int)Width)
-                        .Select(wi => new Plane((uint)wi, (uint)hi) as IFieldCell)
+                        .Range(0, Width)
+                        .Select(wi => new Plane(wi, hi) as IFieldCell)
                         .ToList())
                     .ToList();
             } 
