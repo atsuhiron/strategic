@@ -10,7 +10,7 @@
         Title="MainWindow" Height="600" Width="800">
     <Grid>
         <ScrollViewer Margin="160,160,0,0" HorizontalScrollBarVisibility="Visible">
-            <Grid Height="525" Width="923" x:Name="BattleFieldGrid">
+            <Grid Height="Auto" Width="Auto" x:Name="BattleFieldGrid">
                 <Grid.DataContext>
                     <localVM:MainWindowViewModel/>
                 </Grid.DataContext>
