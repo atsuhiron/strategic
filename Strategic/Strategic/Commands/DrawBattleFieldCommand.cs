@@ -10,6 +10,8 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using App.ViewModels;
 using App.Constants;
+using App.UIEFactories;
+using Game.Fields;
 
 namespace App.Commands
 {
@@ -43,15 +45,7 @@ namespace App.Commands
                 {
                     foreach (var x in Enumerable.Range(0, width))
                     {
-                        var rect = new Rectangle
-                        {
-                            Width = Values.cellSize,
-                            Height = Values.cellSize,
-                            Stroke = new SolidColorBrush(Colors.Blue),
-                            HorizontalAlignment = HorizontalAlignment.Left,
-                            VerticalAlignment = VerticalAlignment.Top,
-                            Margin = new Thickness(Values.cellSize * x, Values.cellSize * y, 0, 0)
-                        };
+                        var rect = FieldCellFactory.CreateFieldCell(new Plane(x, y));
                         bfGrid.Children.Add(rect);
                     }
                 }

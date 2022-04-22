@@ -15,7 +15,7 @@ namespace Game.Fields
         public override int XCoord { get; init; }
         public override int YCoord { get; init; }
 
-        public override string Color => "Green";
+        protected override string ColorCode => "4DDD5C";
 
         public override IUnit? Unit { get; set; }
 
