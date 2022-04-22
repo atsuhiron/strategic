@@ -35,11 +35,13 @@ namespace App.Commands
 
         public void Execute(object? parameter)
         {
+            var width = mainWindowViewModel.GetWidth();
+            var height = mainWindowViewModel.GetHeight();
             if (parameter is Grid bfGrid)
             {
-                foreach (var y in Enumerable.Range(0, mainWindowViewModel.GetHeight()))
+                foreach (var y in Enumerable.Range(0, height))
                 {
-                    foreach (var x in Enumerable.Range(0, mainWindowViewModel.GetWidth()))
+                    foreach (var x in Enumerable.Range(0, width))
                     {
                         var rect = new Rectangle
                         {
@@ -53,8 +55,8 @@ namespace App.Commands
                         bfGrid.Children.Add(rect);
                     }
                 }
-
-                
+                bfGrid.Width = Values.cellSize * width;
+                bfGrid.Height = Values.cellSize * height;                
             }
         }
     }
