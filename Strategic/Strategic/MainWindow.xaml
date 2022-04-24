@@ -24,6 +24,7 @@
             </Grid>
         </ScrollViewer>
 
+        <!-- メニュー -->
         <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
             <MenuItem Header="{x:Static localConst:Strings.file}">
                 <MenuItem Header="{x:Static localConst:Strings.load}"/>
