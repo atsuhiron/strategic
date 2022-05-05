@@ -11,31 +11,21 @@ using System.Windows.Shapes;
 using App.ViewModels;
 using App.Constants;
 using App.UIEFactories;
+using App.Commands.GUI.Base;
 using Game.Fields;
 
 namespace App.Commands
 {
-    public class DrawBattleFieldCommand : ICommand
+    public class RedrawBattleFieldCommand : BaseGUICommand
     {
-        public event EventHandler? CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
+        public RedrawBattleFieldCommand(MainWindowViewModel mainWindowVM): base(mainWindowVM) {}
 
-        private readonly MainWindowViewModel mainWindowViewModel;
-
-        public DrawBattleFieldCommand(MainWindowViewModel mainWindowVM)
-        {
-            mainWindowViewModel = mainWindowVM;
-        }
-
-        public bool CanExecute(object? parameter)
+        public override bool CanExecute(object? parameter)
         {
             return true;
         }
 
-        public void Execute(object? parameter)
+        public override void Execute(object? parameter)
         {
             var width = mainWindowViewModel.GetWidth();
             var height = mainWindowViewModel.GetHeight();
