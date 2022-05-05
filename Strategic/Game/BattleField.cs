@@ -14,6 +14,8 @@ namespace Game
 
         public IPlayer[] Players { get; private set; }
 
+        public string? SaveFileName { get; set; }
+
         public BattleField()
         {
             Field = new Field(debug: true);

@@ -37,5 +37,12 @@ namespace Game
             }
             
         }
+
+        public Field()
+        {
+            Width = 0;
+            Height = 0;
+            FieldCells = Array.Empty<IReadOnlyList<IFieldCell>>();
+        }
     }
 }

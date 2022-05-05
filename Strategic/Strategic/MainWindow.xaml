@@ -20,14 +20,18 @@
                         <GradientStop Color="#FFEC1919" Offset="1"/>
                     </RadialGradientBrush>
                 </Grid.Background>
-                <Button x:Name="testButton" Content="Button" HorizontalAlignment="Left" Height="29" Margin="334,26,0,0" VerticalAlignment="Top" Width="60" Command="{Binding DrawCommand}" CommandParameter="{Binding ElementName=BattleFieldGrid}"/>
+                <Button x:Name="testButton" Content="Button" HorizontalAlignment="Left" Height="29" Margin="334,26,0,0" VerticalAlignment="Top" Width="60" Command="{Binding RedrawCommand}" CommandParameter="{Binding ElementName=BattleFieldGrid}"/>
             </Grid>
         </ScrollViewer>
 
+        <!-- メニュー -->
         <Menu x:Name="menu" Height="20" VerticalAlignment="Top">
             <MenuItem Header="{x:Static localConst:Strings.file}">
-                <MenuItem Header="{x:Static localConst:Strings.load}"/>
-                <MenuItem Header="{x:Static localConst:Strings.save}"/>
+                <MenuItem.DataContext>
+                    <localVM:MainWindowViewModel/>
+                </MenuItem.DataContext>
+                <MenuItem Header="{x:Static localConst:Strings.load}" Command="{Binding IOLoadCommand}" CommandParameter="{Binding ElementName=BattleFieldGrid}"/>
+                <MenuItem Header="{x:Static localConst:Strings.save}" Command="{Binding IOSaveCommand}"/>
                 <Separator/>
                 <MenuItem Header="{x:Static localConst:Strings.debugLoad}"/>
             </MenuItem>
