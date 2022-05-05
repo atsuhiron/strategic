@@ -8,13 +8,18 @@ namespace DebugConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine(String.Equals(UnitTypes.Infantry.ToString(), "Infantry"));
-            
+            //Console.WriteLine("Hello World!");
+            //Console.WriteLine(String.Equals(UnitTypes.Infantry.ToString(), "Infantry"));
+
+            //var datetime = DateTime.Now;
+            //Console.WriteLine(datetime.ToString("yyyyMMddhhmmss"));
+            string jstr2 = "{\"ParentName\":\"pare\",\"Samples\":[{\"Name\":\"alpha\",\"SomeValue\":23},{\"Name\":\"bravo\",\"SomeValue\":43},{\"Name\":\"charie\",\"SomeValue\":18}]}";
+            Parent? parent2 = JsonSerializer.Deserialize<Parent>(jstr2);
+
             var parent = new Parent();
-            var options = new JsonSerializerOptions { WriteIndented = true };
+            var options = new JsonSerializerOptions { WriteIndented = false };
             string jstr = JsonSerializer.Serialize(parent, options);
-            Console.WriteLine(jstr);
+            Console.WriteLine(parent2?.Samples[0].ToString());
         }
     }
 
@@ -34,16 +39,16 @@ namespace DebugConsole
     {
         public string ParentName { get; set; }
         
-        public Sample[] Samples { get; set; }
+        public IKlass[] Samples { get; set; }
 
         public Parent()
         {
             ParentName = "pare";
-            Samples = new Sample[]
+            Samples = new IKlass[]
             {
-                new Sample("alpha", 23),
-                new Sample("bravo", 43),
-                new Sample("charie", 18)
+                new Klass("alpha", 23),
+                new Klass("bravo", 43),
+                new Klass("charie", 18)
             };
         }
     }
