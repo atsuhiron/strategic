@@ -8,18 +8,12 @@ namespace DebugConsole
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
-            //Console.WriteLine(String.Equals(UnitTypes.Infantry.ToString(), "Infantry"));
+            string jstr2 = "{\"ParentName\":\"pare\",\"Samples\":[{\"KlType\":0,\"Name\":\"alpha\",\"SomeValue\":23},{\"KlType\":1,\"Name\":\"bravo\",\"SomeValue\":43},{\"KlType\":0,\"Name\":\"charie\",\"SomeValue\":18}]}";
 
-            //var datetime = DateTime.Now;
-            //Console.WriteLine(datetime.ToString("yyyyMMddhhmmss"));
-            string jstr2 = "{\"ParentName\":\"pare\",\"Samples\":[{\"Name\":\"alpha\",\"SomeValue\":23},{\"Name\":\"bravo\",\"SomeValue\":43},{\"Name\":\"charie\",\"SomeValue\":18}]}";
-            Parent? parent2 = JsonSerializer.Deserialize<Parent>(jstr2);
+            var dict = JsonToDict.ParseJson(jstr2);
 
-            var parent = new Parent();
-            var options = new JsonSerializerOptions { WriteIndented = false };
-            string jstr = JsonSerializer.Serialize(parent, options);
-            Console.WriteLine(parent2?.Samples[0].ToString());
+            Console.WriteLine(dict.ContainsKey("ParentName"));
+            // ここから頑張ればなんとかなりそう
         }
     }
 
@@ -43,13 +37,14 @@ namespace DebugConsole
 
         public Parent()
         {
-            ParentName = "pare";
-            Samples = new IKlass[]
-            {
-                new Klass("alpha", 23),
-                new Klass("bravo", 43),
-                new Klass("charie", 18)
-            };
+            ParentName = "";
+            Samples = new IKlass[0];
+        }
+
+        public Parent(string parentName, IKlass[] klasses)
+        {
+            ParentName = parentName;
+            Samples = klasses;
         }
     }
 }

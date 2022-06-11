@@ -1,23 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DebugConsole
+﻿namespace DebugConsole
 {
+    public enum KlassType
+    {
+        Type1,
+        Type2
+    }
+
     public interface IKlass
     {
+        public KlassType KlType { get; }
         public string Name { get; set; }
         public int SomeValue { get; set; }
     }
 
-    public class Klass : IKlass
+    public class Klass1 : IKlass
     {
+        public KlassType KlType => KlassType.Type1;
         public string Name { get; set; }
         public int SomeValue { get; set; }
 
-        public Klass(string name, int someValue)
+        public Klass1(string name, int someValue)
         {
             Name = name;
             SomeValue = someValue;
@@ -25,7 +27,25 @@ namespace DebugConsole
 
         public override string ToString()
         {
-            return $"Name: {Name}, SomaValue: {SomeValue}";
+            return $"K1 Name: {Name}, SomaValue: {SomeValue}";
+        }
+    }
+
+    public class Klass2 : IKlass
+    {
+        public KlassType KlType => KlassType.Type2;
+        public string Name { get; set; }
+        public int SomeValue { get; set; }
+
+        public Klass2(string name, int someValue)
+        {
+            Name = name;
+            SomeValue = someValue;
+        }
+
+        public override string ToString()
+        {
+            return $"K2 Name: {Name}, SomaValue: {SomeValue}";
         }
     }
 }
