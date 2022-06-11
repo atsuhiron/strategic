@@ -20,7 +20,9 @@
                         <GradientStop Color="#FFEC1919" Offset="1"/>
                     </RadialGradientBrush>
                 </Grid.Background>
+                <!--
                 <Button x:Name="testButton" Content="Button" HorizontalAlignment="Left" Height="29" Margin="334,26,0,0" VerticalAlignment="Top" Width="60" Command="{Binding RedrawCommand}" CommandParameter="{Binding ElementName=BattleFieldGrid}"/>
+                -->
             </Grid>
         </ScrollViewer>
 
