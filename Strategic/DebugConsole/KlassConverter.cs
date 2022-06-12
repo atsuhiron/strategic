@@ -8,25 +8,6 @@ using System.Text.Json.Serialization;
 
 namespace DebugConsole
 {
-    public class KlassConverter : JsonConverter<IKlass>
-    {
-        public override bool CanConvert(Type typeToConvert)
-        {
-            return typeof(IKlass).IsAssignableFrom(typeToConvert);
-        }
-
-        public override IKlass? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            var tt = reader.TokenType;
-            return new Klass1("fake", -1);
-        }
-
-        public override void Write(Utf8JsonWriter writer, IKlass value, JsonSerializerOptions options)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
     public static class JsonToDict
     {
         // JSON文字列をDictionary<string, dynamic>型に変換するメソッド
