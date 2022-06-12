@@ -21,5 +21,11 @@ namespace Game
             Field = new Field(debug: true);
             Players = Array.Empty<IPlayer>();
         }
+
+        public static BattleField Parse(Dictionary<string, dynamic?> dict)
+        {
+            //TODO
+            return new BattleField();
+        }
     }
 }

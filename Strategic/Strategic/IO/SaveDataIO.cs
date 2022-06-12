@@ -19,6 +19,7 @@ namespace App.IO
         public async static Task<(bool, BattleField?)> Read(string fileName)
         {
             using FileStream openStream = File.OpenRead(fileName);
+            // ここを変える
             BattleField? battleField = await JsonSerializer.DeserializeAsync<BattleField>(openStream, options);
             return (battleField != null, battleField);
         }
